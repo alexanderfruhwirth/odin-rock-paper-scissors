@@ -20,3 +20,6 @@ function getComputerChoice() {
 -- Getting the human choice of rock, paper or scissors as a return value of a function --
 - When this function is called, prompt the user to enter "rock", "paper" or "scissors" and return the input -
 */
+function getHumanChoice() {
+  return prompt("Enter either rock, paper or scissors: ");
+}
