@@ -15,3 +15,8 @@ function getComputerChoice() {
     return "scissors";
   }
 }
+
+/* Pseudocode for human choice
+-- Getting the human choice of rock, paper or scissors as a return value of a function --
+- When this function is called, prompt the user to enter "rock", "paper" or "scissors" and return the input -
+*/
