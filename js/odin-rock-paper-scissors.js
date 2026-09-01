@@ -5,3 +5,13 @@
 - Else if the variable's value is smaller than 2/3 return the string "paper"
 - Else return the string "scissors"
 */
+function getComputerChoice() {
+  let computerChoice = Math.random();
+  if (computerChoice < 1 / 3) {
+    return "rock";
+  } else if (computerChoice < 1 / 2) {
+    return "paper";
+  } else {
+    return "scissors";
+  }
+}
