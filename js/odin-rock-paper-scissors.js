@@ -33,3 +33,77 @@ function getHumanChoice() {
 - Increment the score of the winner using the global humanScore and computerScore variables
 - Log a message to the console that announces player choices, the winner of the round and the current scores
 */
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice.toLowerCase() === "rock") {
+    if (computerChoice === "paper") {
+      computerScore++;
+      console.log(
+        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
+Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!
+Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+      );
+    } else if (computerChoice === "scissors") {
+      humanScore++;
+      console.log(
+        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
+Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!
+Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+      );
+    } else if (computerChoice === humanChoice.toLowerCase()) {
+      console.log(
+        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
+Draw!
+Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+      );
+    }
+  } else if (humanChoice.toLowerCase() === "paper") {
+    if (computerChoice === "scissors") {
+      computerScore++;
+      console.log(
+        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
+Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!
+Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+      );
+    } else if (computerChoice === "rock") {
+      humanScore++;
+      console.log(
+        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
+Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!
+Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+      );
+    } else if (computerChoice === humanChoice.toLowerCase()) {
+      console.log(
+        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
+Draw!
+Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+      );
+    }
+  } else if (humanChoice.toLowerCase() === "scissors") {
+    if (computerChoice === "rock") {
+      computerScore++;
+      console.log(
+        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
+Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!
+Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+      );
+    } else if (computerChoice === "paper") {
+      humanScore++;
+      console.log(
+        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
+Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!
+Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+      );
+    } else if (computerChoice === humanChoice.toLowerCase()) {
+      console.log(
+        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
+Draw!
+Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+      );
+    }
+  }
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+playRound(getHumanChoice(), getComputerChoice());
