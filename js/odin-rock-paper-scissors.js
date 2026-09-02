@@ -23,3 +23,13 @@ function getComputerChoice() {
 function getHumanChoice() {
   return prompt("Enter either rock, paper or scissors: ");
 }
+
+/* Pseudocode for playing a round
+-- Playing a round of rock paper scissors by taking the human and computer choices as arguments for a function
+   that tracks the score of each player and logs player choices, the winner of the round and the current scores --
+- When this function is called (assuming valid humanChoice and computerChoice arguments):
+- Compare each combination of humanChoice and computerChoice (normalise humanChoice to lower case so
+  capitalisation does not affect the comparison)
+- Increment the score of the winner using the global humanScore and computerScore variables
+- Log a message to the console that announces player choices, the winner of the round and the current scores
+*/
