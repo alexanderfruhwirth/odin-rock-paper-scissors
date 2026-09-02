@@ -9,7 +9,7 @@ function getComputerChoice() {
   let computerChoice = Math.random();
   if (computerChoice < 1 / 3) {
     return "rock";
-  } else if (computerChoice < 1 / 2) {
+  } else if (computerChoice < 2 / 3) {
     return "paper";
   } else {
     return "scissors";
@@ -18,7 +18,7 @@ function getComputerChoice() {
 
 /* Pseudocode for human choice
 -- Getting the human choice of rock, paper or scissors as a return value of a function --
-- When this function is called, prompt the user to enter "rock", "paper" or "scissors" and return the input -
+- When this function is called, prompt the user to enter "rock", "paper" or "scissors" and return the input
 */
 function getHumanChoice() {
   return prompt("Enter either rock, paper or scissors: ");
