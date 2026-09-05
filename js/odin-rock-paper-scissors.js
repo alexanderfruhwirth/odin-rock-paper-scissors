@@ -36,77 +36,66 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
   if (humanChoice.toLowerCase() === "rock") {
     if (computerChoice === "paper") {
-      computerScore++;
       console.log(
         `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!
-Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!`,
       );
+      return "computer";
     } else if (computerChoice === "scissors") {
-      humanScore++;
       console.log(
         `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!
-Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!`,
       );
+      return "human";
     } else if (computerChoice === humanChoice.toLowerCase()) {
       console.log(
         `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Draw!
-Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+Draw!`,
       );
+      return;
     }
   } else if (humanChoice.toLowerCase() === "paper") {
     if (computerChoice === "scissors") {
-      computerScore++;
       console.log(
         `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!
-Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!`,
       );
+      return "computer";
     } else if (computerChoice === "rock") {
-      humanScore++;
       console.log(
         `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!
-Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!`,
       );
+      return "human";
     } else if (computerChoice === humanChoice.toLowerCase()) {
       console.log(
         `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Draw!
-Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+Draw!`,
       );
+      return;
     }
   } else if (humanChoice.toLowerCase() === "scissors") {
     if (computerChoice === "rock") {
-      computerScore++;
       console.log(
         `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!
-Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!`,
       );
+      return "computer";
     } else if (computerChoice === "paper") {
-      humanScore++;
       console.log(
         `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!
-Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!`,
       );
+      return "human";
     } else if (computerChoice === humanChoice.toLowerCase()) {
       console.log(
         `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Draw!
-Scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+Draw!`,
       );
+      return;
     }
   }
 }
-
-let humanScore = 0;
-let computerScore = 0;
-
-playRound(getHumanChoice(), getComputerChoice());
 
 /*Pseudocode for playing a game
 -- Playing a game of rock paper scissors for 5 rounds using a function called playGame that calls
@@ -121,3 +110,29 @@ playRound(getHumanChoice(), getComputerChoice());
   for each round from the playRound function to the playGame function where the scores are tracked
 - After the final round announce the final outcome
 */
+function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
+
+  for (let round = 1; round <= 5; round++) {
+    const winner = playRound(getHumanChoice(), getComputerChoice());
+    if (winner === "human") {
+      humanScore++;
+    } else if (winner === "computer") {
+      computerScore++;
+    }
+    console.log(
+      `Current scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`,
+    );
+  }
+
+  if (humanScore > computerScore) {
+    return `Human player wins! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
+  } else if (humanScore < computerScore) {
+    return `Computer player wins! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
+  } else {
+    return `The game ends in a draw! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
+  }
+}
+
+console.log(playGame());
