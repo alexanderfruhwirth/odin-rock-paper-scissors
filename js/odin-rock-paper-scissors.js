@@ -107,3 +107,17 @@ let humanScore = 0;
 let computerScore = 0;
 
 playRound(getHumanChoice(), getComputerChoice());
+
+/*Pseudocode for playing a game
+-- Playing a game of rock paper scissors for 5 rounds using a function called playGame that calls
+   the playRound function 5 times, tracks humanScore and computerScore and declares a round winner
+   for each round and a final winner at the end of a complete game --
+- When the playGame function is called set humanScore and computerScore variables with the value 0
+- For 5 iterations call the playRound function with the getHumanChoice and getComputerChoice functions as arguments
+- Rework the playRound function to return the string "human" (human player wins), "computer" (computer player wins)
+  or nothing[undefined] (the round ends in a draw)
+- After each round increment humanScore or computerScore inside the playGame function depending on the playRound outcome
+- Keep the choice and outcome announcements for each round inside the playRound function, but move the scores announcement
+  for each round from the playRound function to the playGame function where the scores are tracked
+- After the final round announce the final outcome
+*/
