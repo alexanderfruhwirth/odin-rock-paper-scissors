@@ -1,5 +1,5 @@
 function getComputerChoice() {
-  let computerChoice = Math.random();
+  const computerChoice = Math.random();
   if (computerChoice < 1 / 3) {
     return "rock";
   } else if (computerChoice < 2 / 3) {
@@ -14,66 +14,33 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  if (humanChoice.toLowerCase() === "rock") {
-    if (computerChoice === "paper") {
-      console.log(
-        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!`,
-      );
-      return "computer";
-    } else if (computerChoice === "scissors") {
-      console.log(
-        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!`,
-      );
-      return "human";
-    } else if (computerChoice === humanChoice.toLowerCase()) {
-      console.log(
-        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
+  humanChoice = humanChoice.toLowerCase();
+  if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    console.log(
+      `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
+Human player wins (${humanChoice} beats ${computerChoice})!`,
+    );
+    return "human";
+  } else if (
+    (humanChoice === "rock" && computerChoice === "paper") ||
+    (humanChoice === "paper" && computerChoice === "scissors") ||
+    (humanChoice === "scissors" && computerChoice === "rock")
+  ) {
+    console.log(
+      `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
+Computer player wins (${computerChoice} beats ${humanChoice})!`,
+    );
+    return "computer";
+  } else if (humanChoice === computerChoice) {
+    console.log(
+      `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
 Draw!`,
-      );
-      return;
-    }
-  } else if (humanChoice.toLowerCase() === "paper") {
-    if (computerChoice === "scissors") {
-      console.log(
-        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!`,
-      );
-      return "computer";
-    } else if (computerChoice === "rock") {
-      console.log(
-        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!`,
-      );
-      return "human";
-    } else if (computerChoice === humanChoice.toLowerCase()) {
-      console.log(
-        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Draw!`,
-      );
-      return;
-    }
-  } else if (humanChoice.toLowerCase() === "scissors") {
-    if (computerChoice === "rock") {
-      console.log(
-        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Computer player wins (${computerChoice} beats ${humanChoice.toLowerCase()})!`,
-      );
-      return "computer";
-    } else if (computerChoice === "paper") {
-      console.log(
-        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Human player wins (${humanChoice.toLowerCase()} beats ${computerChoice})!`,
-      );
-      return "human";
-    } else if (computerChoice === humanChoice.toLowerCase()) {
-      console.log(
-        `Human player chose ${humanChoice.toLowerCase()} and computer player chose ${computerChoice}.
-Draw!`,
-      );
-      return;
-    }
+    );
+    return;
   }
 }
 
