@@ -55,19 +55,14 @@ btnRock.addEventListener("click", () => {
   const currentScores = document.createElement("p");
   currentScores.textContent = `Current scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`;
   resultLog.appendChild(currentScores);
-  if (round === 5 && humanScore > computerScore) {
+  if (humanScore === 5) {
     const gameResult = document.createElement("p");
     gameResult.textContent = `Human player wins! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
     resultLog.appendChild(gameResult);
     [humanScore, computerScore, round] = [0, 0, 0];
-  } else if (round === 5 && humanScore < computerScore) {
+  } else if (computerScore === 5) {
     const gameResult = document.createElement("p");
     gameResult.textContent = `Computer player wins! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
-    resultLog.appendChild(gameResult);
-    [humanScore, computerScore, round] = [0, 0, 0];
-  } else if (round === 5 && humanScore === computerScore) {
-    const gameResult = document.createElement("p");
-    gameResult.textContent = `The game ends in a draw! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
     resultLog.appendChild(gameResult);
     [humanScore, computerScore, round] = [0, 0, 0];
   }
@@ -85,19 +80,14 @@ btnPaper.addEventListener("click", () => {
   const currentScores = document.createElement("p");
   currentScores.textContent = `Current scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`;
   resultLog.appendChild(currentScores);
-  if (round === 5 && humanScore > computerScore) {
+  if (humanScore === 5) {
     const gameResult = document.createElement("p");
     gameResult.textContent = `Human player wins! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
     resultLog.appendChild(gameResult);
     [humanScore, computerScore, round] = [0, 0, 0];
-  } else if (round === 5 && humanScore < computerScore) {
+  } else if (computerScore === 5) {
     const gameResult = document.createElement("p");
     gameResult.textContent = `Computer player wins! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
-    resultLog.appendChild(gameResult);
-    [humanScore, computerScore, round] = [0, 0, 0];
-  } else if (round === 5 && humanScore === computerScore) {
-    const gameResult = document.createElement("p");
-    gameResult.textContent = `The game ends in a draw! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
     resultLog.appendChild(gameResult);
     [humanScore, computerScore, round] = [0, 0, 0];
   }
@@ -115,19 +105,14 @@ btnScissors.addEventListener("click", () => {
   const currentScores = document.createElement("p");
   currentScores.textContent = `Current scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`;
   resultLog.appendChild(currentScores);
-  if (round === 5 && humanScore > computerScore) {
+  if (humanScore === 5) {
     const gameResult = document.createElement("p");
     gameResult.textContent = `Human player wins! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
     resultLog.appendChild(gameResult);
     [humanScore, computerScore, round] = [0, 0, 0];
-  } else if (round === 5 && humanScore < computerScore) {
+  } else if (computerScore === 5) {
     const gameResult = document.createElement("p");
     gameResult.textContent = `Computer player wins! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
-    resultLog.appendChild(gameResult);
-    [humanScore, computerScore, round] = [0, 0, 0];
-  } else if (round === 5 && humanScore === computerScore) {
-    const gameResult = document.createElement("p");
-    gameResult.textContent = `The game ends in a draw! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
     resultLog.appendChild(gameResult);
     [humanScore, computerScore, round] = [0, 0, 0];
   }
