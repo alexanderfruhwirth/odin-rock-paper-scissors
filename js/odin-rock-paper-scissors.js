@@ -10,30 +10,20 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  const roundResult = document.createElement("p");
   if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
-    roundResult.textContent = `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
-Human player wins (${humanChoice} beats ${computerChoice})!`;
-    resultLog.appendChild(roundResult);
     return "human";
   } else if (
     (humanChoice === "rock" && computerChoice === "paper") ||
     (humanChoice === "paper" && computerChoice === "scissors") ||
     (humanChoice === "scissors" && computerChoice === "rock")
   ) {
-    roundResult.textContent = `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
-Computer player wins (${computerChoice} beats ${humanChoice})!`;
-    resultLog.appendChild(roundResult);
     return "computer";
   } else if (humanChoice === computerChoice) {
-    roundResult.textContent = `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
-Draw!`;
-    resultLog.appendChild(roundResult);
-    return;
+    return "draw";
   }
 }
 
@@ -44,29 +34,55 @@ function trackGameStats(roundWinner) {
     computerScore++;
   }
   round++;
-  const currentScores = document.createElement("p");
-  currentScores.textContent = `Current scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`;
-  resultLog.appendChild(currentScores);
 }
 
 function checkEndGameCondition() {
   if (humanScore === 5) {
-    const gameResult = document.createElement("p");
-    gameResult.textContent = `Human player wins! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
-    resultLog.appendChild(gameResult);
-    [humanScore, computerScore, round] = [0, 0, 0];
+    return "human";
   } else if (computerScore === 5) {
-    const gameResult = document.createElement("p");
-    gameResult.textContent = `Computer player wins! Final player scores|| Human score: ${humanScore} Computer score: ${computerScore} ||`;
-    resultLog.appendChild(gameResult);
-    [humanScore, computerScore, round] = [0, 0, 0];
+    return "computer";
+  }
+  return false;
+}
+
+function announce(announcementType, player, humanChoice, computerChoice) {
+  const announcement = document.createElement("p");
+  if (announcementType === "roundWinner" && player === "human") {
+    announcement.textContent = `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
+Human player wins this round (${humanChoice} beats ${computerChoice})!`;
+    resultLog.appendChild(announcement);
+  } else if (announcementType === "roundWinner" && player === "computer") {
+    announcement.textContent = `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
+Computer player wins this round (${computerChoice} beats ${humanChoice})!`;
+    resultLog.appendChild(announcement);
+  } else if (announcementType === "roundWinner" && player === "draw") {
+    announcement.textContent = `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
+This round ends in a draw!`;
+    resultLog.appendChild(announcement);
+  } else if (announcementType === "scores") {
+    announcement.textContent = `Current scores|| Human player: ${humanScore}, Computer player: ${computerScore} ||`;
+    resultLog.appendChild(announcement);
+  } else if (announcementType === "gameWinner" && player === "human") {
+    announcement.textContent = `HUMAN PLAYER WINS THE GAME: Final scores|| Human player: ${humanScore} Computer player: ${computerScore} ||`;
+    resultLog.appendChild(announcement);
+  } else if (announcementType === "gameWinner" && player === "computer") {
+    announcement.textContent = `COMPUTER PLAYER WINS THE GAME: Final scores|| Human player: ${humanScore} Computer player: ${computerScore} ||`;
+    resultLog.appendChild(announcement);
   }
 }
 
-function choose(choice) {
-  const roundWinner = playRound(choice, getComputerChoice());
+function choose(humanChoice) {
+  const computerChoice = getComputerChoice();
+  const roundWinner = playRound(humanChoice, computerChoice);
   trackGameStats(roundWinner);
-  checkEndGameCondition();
+  announce("roundWinner", roundWinner, humanChoice, computerChoice);
+  const gameWinner = checkEndGameCondition();
+  if (gameWinner) {
+    announce("gameWinner", gameWinner);
+    [humanScore, computerScore, round] = [0, 0, 0];
+  } else {
+    announce("scores");
+  }
 }
 
 let humanScore = 0;
