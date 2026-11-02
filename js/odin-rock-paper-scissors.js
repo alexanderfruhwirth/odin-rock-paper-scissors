@@ -72,6 +72,10 @@ This round ends in a draw!`;
 }
 
 function choose(humanChoice) {
+  const resetCondition = checkEndGameCondition();
+  if (resetCondition) {
+    [humanScore, computerScore, round] = [0, 0, 0];
+  }
   const computerChoice = getComputerChoice();
   const roundWinner = playRound(humanChoice, computerChoice);
   trackGameStats(roundWinner);
@@ -79,7 +83,6 @@ function choose(humanChoice) {
   const gameWinner = checkEndGameCondition();
   if (gameWinner) {
     announce("gameWinner", gameWinner);
-    [humanScore, computerScore, round] = [0, 0, 0];
   } else {
     announce("scores");
   }
