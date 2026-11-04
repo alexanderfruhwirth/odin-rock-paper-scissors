@@ -49,15 +49,15 @@ function announceRoundWinner(roundWinner, humanChoice, computerChoice) {
   const announcement = document.createElement("p");
   if (roundWinner === "human") {
     announcement.textContent = `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
-Human player wins this round (${humanChoice} beats ${computerChoice})!`;
+Human player wins round ${round} (${humanChoice} beats ${computerChoice})!`;
     resultLog.appendChild(announcement);
   } else if (roundWinner === "computer") {
     announcement.textContent = `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
-Computer player wins this round (${computerChoice} beats ${humanChoice})!`;
+Computer player wins round ${round} (${computerChoice} beats ${humanChoice})!`;
     resultLog.appendChild(announcement);
   } else if (roundWinner === "draw") {
     announcement.textContent = `Human player chose ${humanChoice} and computer player chose ${computerChoice}.
-This round ends in a draw!`;
+Round ${round} ends in a draw!`;
     resultLog.appendChild(announcement);
   }
 }
