@@ -27,7 +27,7 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-function trackGameStats(roundWinner) {
+function updateGameStats(roundWinner) {
   if (roundWinner === "human") {
     humanScore++;
   } else if (roundWinner === "computer") {
@@ -86,7 +86,7 @@ function choose(humanChoice) {
   }
   const computerChoice = getComputerChoice();
   const roundWinner = playRound(humanChoice, computerChoice);
-  trackGameStats(roundWinner);
+  updateGameStats(roundWinner);
   announceRoundWinner(roundWinner, humanChoice, computerChoice);
   const gameWinner = checkEndGameCondition();
   if (gameWinner) {
